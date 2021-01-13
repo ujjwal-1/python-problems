@@ -1,0 +1,48 @@
+def sign_identification():
+    for key in lists:
+        if "-" in key and key.count("-") >= 2:
+            if key.count("-") % 2 == 1:
+                new_list.append("-")
+            elif key.count("-") % 2 == 0:
+                new_list.append("+")
+        elif "+" in key and key.count("+") > 2:
+            new_list.append("+")
+        else:
+            new_list.append(key)
+    return new_list
+
+
+
+def calculable_lists():
+    sign_identification()
+    count = 0
+    while count < (len(new_list)):
+        if not final_list:
+            final_list.append(new_list[count])
+            count = 1
+        else:
+            final_list.append(new_list[count] + new_list[count + 1])
+            count = count + 2
+    return final_list
+
+
+while True:
+    lists = input().split()
+    new_list = []
+    final_list = []
+    calculable_lists()
+    calculation = 0
+    if len(final_list) >= 2:
+        for key in final_list:
+            calculation = calculation + int(key)
+        print(calculation)
+    elif len(final_list) == 1:
+        if final_list[0] == "/exit":
+            print("Bye!")
+            break
+        elif final_list[0] == "/help":
+            print("The program calculates the sum and subtraction of numbers")
+        else:
+            print(int(final_list[0]))
+    elif len(final_list) == 0:
+        continue
