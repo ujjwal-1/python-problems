@@ -1,0 +1,17 @@
+def tallest_people(**peoples):
+    collection = {}
+    j = 0
+    for i, k in peoples.items():
+        if k > j:
+            collection.clear()
+            j = k
+            collection[i] = j
+        elif k == j:
+            collection[i] = j
+    sorting = []
+    for i in collection:
+        sorting.append(i)
+        sorting.sort()
+    for i in sorting:
+        print(str(i) + " : " + str(collection[i]))
+
